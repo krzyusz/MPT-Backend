@@ -1,0 +1,42 @@
+/* EditQuestions.css */
+.edit-questions {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 8px;
+  }
+  
+  .edit-question {
+    margin-bottom: 10px;
+  }
+  
+  .edit-question input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-question input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-question button,
+  .edit-question button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-question button:hover,
+  .edit-question button:hover {
+    background-color: #0056b3;
+  }
+  
