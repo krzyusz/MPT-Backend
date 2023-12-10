@@ -1,0 +1,11 @@
+1.Wystawic api restowe - GOTOWE
+2.Przetestowac Get Post Put w prosty sposob - GOTOWE
+3.Uruchomic przykladowa baze danych - GOTOWE
+4.Spiac API z baza danych - GOTOWE
+5.Napisac program konsolowy pozwalajacy na komunikacje z serwerem - GOTOWE
+6.Przygotowac testy automatyczne dla API - GOTOWE
+
+
+-----------------------------------13.11.2023------------------------------------------------
+1.Podpiąć się z bazą elephanta
+2.Napisać GET, POST, PUT, DELETE do danych tabel
