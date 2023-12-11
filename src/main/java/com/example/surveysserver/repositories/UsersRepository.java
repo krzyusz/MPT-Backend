@@ -1,13 +1,13 @@
 package com.example.surveysserver.repositories;
 
-import com.example.surveysserver.data.Survey;
-import com.example.surveysserver.data.Users;
+import com.example.surveysserver.data.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UsersRepository {
@@ -17,18 +17,40 @@ public class UsersRepository {
 
 
     //GET
-    public List<Users> getAll(){
+    public List<User> getAll(){
         return jdbcTemplate.query("SELECT UserID, Username, Password, Email, Type FROM Users",
-                BeanPropertyRowMapper.newInstance(Users.class));
+                BeanPropertyRowMapper.newInstance(User.class));
     }
 
     //POST
-    public int saveUsers(List<Users> users){
+    public int saveUsers(List<User> users){
         users.forEach(user -> jdbcTemplate
                 .update("INSERT INTO Users(UserID, Username, Password, Email, Type) VALUES(?, ?, ?, ?, ?)",
                         user.getUserid(),user.getUsername(),user.getPassword(),user.getEmail(),user.getType()));
         return 1;
     }
+
+    public int register(User user) {
+        jdbcTemplate.update("INSERT INTO Users(Username, Password, Email, Type) VALUES(?, ?, ?, ?)",
+                user.getUsername(),user.getPassword(),user.getEmail(),user.getType());
+        return 1;
+    }
+
+    public Optional<User> login(User user){
+        User user1;
+        try {
+             user1 = jdbcTemplate.queryForObject("SELECT * FROM users WHERE Username = ? AND Password = ?",
+                    BeanPropertyRowMapper.newInstance(User.class),
+                    user.getUsername(),
+                    user.getPassword());
+        } catch(Exception e){
+            return Optional.empty();
+        }
+        return Optional.ofNullable(user1);
+    }
+
+    //TODO make login method which returns JWT to user
+
 /*
     public List<Survey> getSurveysBySurname(String surname){
         return jdbcTemplate.query("SELECT id, imie, nazwisko, ocena FROM Users WHERE nazwisko = ?",

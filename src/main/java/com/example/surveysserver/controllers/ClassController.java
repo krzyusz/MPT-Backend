@@ -1,9 +1,7 @@
 package com.example.surveysserver.controllers;
 
 import com.example.surveysserver.data.ClassConvert;
-import com.example.surveysserver.data.Users;
 import com.example.surveysserver.repositories.ClassRepository;
-import com.example.surveysserver.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

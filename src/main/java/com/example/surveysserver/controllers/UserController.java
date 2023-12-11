@@ -1,15 +1,14 @@
 package com.example.surveysserver.controllers;
 
-import com.example.surveysserver.data.Survey;
-import com.example.surveysserver.data.Users;
+import com.example.surveysserver.data.User;
 import com.example.surveysserver.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-//@RequestMapping("/surveys")
 public class UserController {
 
     @Autowired
@@ -24,12 +23,18 @@ public class UserController {
  */
 
     @GetMapping("/users")
-    public List<Users> getAllUsers(){
+    public List<User> getAllUsers(){
         return usersRepository.getAll();
     }
 
     @PostMapping("/users")
-    public int addUsers(@RequestBody List<Users> users){return usersRepository.saveUsers(users);}
+    public int addUsers(@RequestBody List<User> users){return usersRepository.saveUsers(users);}
+
+    @PostMapping("/register")
+    public int register(@RequestBody User user){return usersRepository.register(user);}
+
+    @PostMapping("/login")
+    public Optional<User> login(@RequestBody User user){return usersRepository.login(user);}
 
     /*
     @GetMapping("/answers")
