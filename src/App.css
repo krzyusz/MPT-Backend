@@ -1,3 +1,58 @@
 .App {
+  display: flex;
+  font-family: 'Arial', sans-serif;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px; /* Add padding for content area */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+
+.sidebar {
+  width: 250px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  min-height: 100vh; /* Full height */
+}
+
+.menu-item {
+  background-color: #ddd;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
   text-align: center;
+  border-radius: 10px;
+}
+
+.menu-item:hover {
+  background-color: #ccc;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover; /* Cover the entire space */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  height: 95vh; /* Full height of the viewport */
+  width: 83vw; /* Full width of the viewport */
+}
+
+
+.main-content img {
+  max-width: 100%;
+  max-height: 80vh;
 }
